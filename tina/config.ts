@@ -48,6 +48,51 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "whychooseus",
+        label: "Why choose us",
+        path: "content/why-choose-us",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "rich-text",
+            name: "landingHeading",
+            label: "Landing Heading",
+  
+          },
+          {
+            type: "rich-text",
+            name: "landingSubheading",
+            label: "Landing Subheading",
+     
+          },
+        ],
+        
+      },
+      {
+        name: "reviews",
+        label: "Reviews",
+        path: "content/reviews",
+        fields: [
+          {
+            type: "string",
+            name: "reviewer",
+            label: "Reviewer",
+          }, 
+          {
+            type: "string",
+            component: "textarea",
+            name: "review",
+            label: "Review",
+          },
+        ],
+      },
     ],
   },
 });

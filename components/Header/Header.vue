@@ -40,7 +40,7 @@ const tabs = [{
         <div class="flex  justify-between items-center  px-3">
           <button>
             <router-link to="/">
-            <img src="../../../assets/logo.webp" class="mr-3 h-24" alt="Help Oot Logo" />
+            <img src="/logo.webp" class="mr-3 h-24" alt="Help Oot Logo" />
            </router-link>
           </button>
           
