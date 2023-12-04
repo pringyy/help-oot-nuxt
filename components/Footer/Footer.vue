@@ -8,7 +8,7 @@
           href="https://helpoot.com/"
           class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
         >
-          <img src="../../../assets/logo.webp" class="h-8" alt="Help Oot Logo" />
+          <img src="/logo.webp" class="h-8" alt="Help Oot Logo" />
         </a>
         <ul
           class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0"
