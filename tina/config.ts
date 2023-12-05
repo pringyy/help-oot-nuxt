@@ -35,7 +35,7 @@ export default defineConfig({
         fields: [
           {
             type: "string",
-            name: "reviewer",
+            name: "title",
             label: "Reviewer",
             isTitle: true,
             required: true,
