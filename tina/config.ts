@@ -29,8 +29,8 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
+        name: "reviews",
+        label: "Reviews",
         path: "content/what-choose-us/reviews",
         fields: [
           {
