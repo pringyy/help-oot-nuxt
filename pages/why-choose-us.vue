@@ -7,16 +7,16 @@
 
 
 <template>
-    <ContentList path="/why-choose-us/reviews" v-slot="{ list }">
+    <ContentList path="/why-choose-us/reviews" v-slot="{ reviews }">
       
 
         <div id="reviews" class="pt-20 flex items-center justify-center h-max">
     <div class="w-full md:w-9/12 p-8 text-center">
       <p class="flex items-center justify-center text-4xl">Here are a few testimonials from some of our clients that showcase their thoughts about our services.</p>
 
-      <div v-for="article in list" :key="article._path" class="pt-20 lg:text-xl">
-        <p>{{ article.description }}</p>
-        <p class="pt-5 lg:text-lg text-bold flex items-center justify-center font-bold">{{ article.title }}</p>
+      <div v-for="review in reviews" :key="review._path" class="pt-20 lg:text-xl">
+        <p>{{ review.description }}</p>
+        <p class="pt-5 lg:text-lg text-bold flex items-center justify-center font-bold">{{ review.title }}</p>
       </div>
       
       <div class="mt-20 flex items-center justify-center">
