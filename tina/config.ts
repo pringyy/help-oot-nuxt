@@ -31,7 +31,7 @@ export default defineConfig({
       {
         name: "reviews",
         label: "Reviews",
-        path: "content/what-choose-us/reviews",
+        path: "content/why-choose-us/reviews",
         fields: [
           {
             type: "string",
