@@ -75,14 +75,14 @@ const tabs = [{
       
         <div v-for="tab in tabs" class = "md:hidden flex flex-col"  v-show="drawerOpen">
          
-       <NuxtLink  :to="tab.link">
+        <NuxtLink  :to="tab.link">
                 <button class="h-full w-full py-4 text-black rounded hover:bg-gray-100"  :class="{
             'text-gray-500': $route?.path !== tab.link, // Change to your deselected color
             'text-black': $route?.path === tab.link // Change to your selected color
           }">
                   {{ tab.title }}
                 </button>
-              </Nuxtink>
+              </NuxtLink>
             </div>
       
       </nav>
