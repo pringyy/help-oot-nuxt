@@ -28,71 +28,97 @@ export default defineConfig({
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
-      {
-        name: "post",
-        label: "Posts",
-        path: "content/posts",
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
-          },
-        ],
-      },
-      {
-        name: "whychooseus",
-        label: "Why choose us",
-        path: "content/why-choose-us",
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "rich-text",
-            name: "landingHeading",
-            label: "Landing Heading",
-  
-          },
-          {
-            type: "rich-text",
-            name: "landingSubheading",
-            label: "Landing Subheading",
-     
-          },
-        ],
-        
-      },
+
+      
+    
       {
         name: "reviews",
         label: "Reviews",
-        path: "content/reviews",
+        path: "content/why-choose-us/reviews",
         fields: [
           {
             type: "string",
             name: "reviewer",
             label: "Reviewer",
+            isTitle: true,
+            required: true,
           }, 
           {
             type: "string",
-            component: "textarea",
+            component: 'textarea',
             name: "review",
             label: "Review",
+            required: true,
+            isBody: true,
           },
         ],
       },
+      {
+        label: "Blog Posts",
+        name: "post",
+         path: '_posts',
+        fields: [
+          {
+            type: 'string',
+            label: 'Title',
+            name: 'title',
+          },
+          {
+            type: 'string',
+            label: 'Excerpt',
+            name: 'excerpt',
+          },
+          {
+            type: 'image',
+            label: 'Cover Image',
+            name: 'coverImage',
+          },
+          {
+            type: 'string',
+            label: 'Date',
+            name: 'date',
+          },
+          {
+            type: 'object',
+            label: 'Author',
+            name: 'author',
+            fields: [
+              {
+                type: 'string',
+                label: 'Name',
+                name: 'name',
+              },
+              {
+                type: 'string',
+                label: 'Picture',
+                name: 'picture',
+              },
+            ],
+          },
+          {
+            type: 'object',
+            label: 'OG Image',
+            name: 'ogImage',
+            fields: [
+              {
+                type: 'string',
+                label: 'Url',
+                name: 'url',
+              },
+            ],
+          },
+          {
+            type: 'string',
+            label: 'Body',
+            name: 'body',
+            isBody: true,
+            ui: {
+                component: "textarea"
+                }
+           
+          },
+        ]
+      }
     ],
   },
 });

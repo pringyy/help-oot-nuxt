@@ -7,7 +7,7 @@
 
 
 <template>
-    <ContentList path="/reviews" v-slot="{ list }">
+    <ContentList path="/why-choose-us/reviews" v-slot="{ list }">
       
 
         <div id="reviews" class="pt-20 flex items-center justify-center h-max">
