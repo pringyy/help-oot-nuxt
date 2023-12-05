@@ -43,7 +43,7 @@ export default defineConfig({
           {
             type: "string",
             ui: { component: "textarea"},
-            name: "review-text",
+            name: "reviewText",
             label: "Review Text",
             isBody: true,
           },
