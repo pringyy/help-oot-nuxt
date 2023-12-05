@@ -16,7 +16,7 @@
 
       <div v-for="article in list" :key="article._path" class="pt-20 lg:text-xl">
         <p>{{ article.description }}</p>
-        <p class="pt-5 lg:text-lg text-bold flex items-center justify-center font-bold">{{ article.reviewer }}</p>
+        <p class="pt-5 lg:text-lg text-bold flex items-center justify-center font-bold">{{ article.title }}</p>
       </div>
       
       <div class="mt-20 flex items-center justify-center">
