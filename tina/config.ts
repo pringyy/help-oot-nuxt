@@ -29,26 +29,166 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "reviews",
-        label: "Reviews",
-        path: "content/why-choose-us/reviews",
+        label: 'Pages',
+        name: 'Pages',
+        path: 'content/',
+     format: 'mdx',
         fields: [
           {
-            type: "string",
-            name: "title",
-            label: "Reviewer",
-            isTitle: true,
+            type: 'string',
+            label: 'Title',
+            name: 'title', 
             required: true,
+            isTitle: true,
           },
+          
           {
-            type: "string",
-            ui: { component: "textarea"},
-            name: "reviewText",
-            label: "Review Text",
+            type: 'rich-text',
+            label: 'Content',
+            name: 'Content',
             isBody: true,
+         templates: [
+            {
+              name: "Hero",
+              label: "Hero",
+              fields: [
+                {
+                  name: "heading",
+                  label: "heading",
+                  type: "string",
+                },
+                {
+                  name: "summary",
+                  label: "summary",
+                  type: "string",
+                  ui: {
+                    component: "textarea",
+                  }
+                }
+              ],
+            },
+            {
+              name: "Contact",
+              label: "Contact",
+              fields: [
+                {
+                  name: "Contact",
+                  label: "Contact",
+                  type: "reference",
+                  collections: ['Contact'],
+                },
+              ],
+            },
+            {
+              name: "Parallax",
+              label: "Parallax",
+              fields: [
+                {
+                  name: "image",
+                  label: "Image",
+                  type: "image",
+                },
+                {
+                  type: 'string',
+                  label: 'Background Color',
+                  name: 'colour',
+                  ui: {
+                    component: "color",
+                    colorFormat: "rgb"
+                  }
+                },
+                {
+                  type: 'rich-text',
+                  label: 'Content',
+                  name: 'children',
+                  isBody: true,
+               templates: [
+                  {
+                    name: "Hero",
+                    label: "Hero",
+                    fields: [
+                      {
+                        name: "heading",
+                        label: "heading",
+                        type: "string",
+                      },
+                      {
+                        name: "summary",
+                        label: "summary",
+                        type: "string",
+                        ui: {
+                          component: "textarea",
+                        }
+                      }
+                    ],
+                  },
+                  
+                
+      
+                  
+                ],
+                },
+
+              ],
+            },
+
+            
+          ],
           },
+
+          
         ],
       },
+
+      {
+        label: 'Contact',
+        name: 'Contact',
+        path: 'content/contact',
+     format: 'mdx',
+        fields: [
+          {
+            type: 'string',
+            label: 'Title',
+            name: 'title', 
+            required: true,
+            isTitle: true,
+          },
+          
+          {
+            type: 'rich-text',
+            label: 'Content',
+            name: 'Content',
+            isBody: true,
+            templates: [
+              {
+                name: "Contact",
+                label: "Contact",
+                fields: [
+                  {
+                    name: "heading",
+                    label: "heading",
+                    type: "string",
+                  },
+                  {
+                    name: "summary",
+                    label: "summary",
+                    type: "string",
+                  },
+                ],
+              },
+           
+
+            
+          ],
+          },
+
+          
+        ],
+      },
+
+
+
+      
     ],
-  },
-});
+    
+  }})

@@ -9,7 +9,7 @@ const toggleDrawer = () => {
 
 const tabs = [{
   title: "WHAT WE DO",
-  link: "/"
+  link: "/what-we-do"
 },
 {
   title: "HOW WE DO IT",
@@ -21,7 +21,7 @@ const tabs = [{
 },
 {
   title: "LET'S TALK",
-  link: "/lets-talk"
+  link: "/contact"
 },
 
 

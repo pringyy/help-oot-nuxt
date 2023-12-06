@@ -16,6 +16,8 @@
     "nuxt": "^3.8.2"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.0",
+    "@mdx-js/mdx": "^3.0.0",
     "tinacms": "^1.5.28"
   }
 }
