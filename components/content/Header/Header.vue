@@ -2,30 +2,16 @@
 
 const drawerOpen = ref(false)
 
+
+const { data } = await useAsyncData('home', () => queryContent('/nav/nav').findOne())
+console.log("data;", data?.value?.body)
 const toggleDrawer = () => {
   drawerOpen.value = !drawerOpen.value
   console.log(drawerOpen.value)
 }
 
-const tabs = [{
-  title: "WHAT WE DO",
-  link: "/what-we-do"
-},
-{
-  title: "HOW WE DO IT",
-  link: "/how-we-do-it"
-},
-{
-  title: "WHY CHOOSE US",
-  link: "/why-choose-us"
-},
-{
-  title: "LET'S TALK",
-  link: "/contact"
-},
 
 
-]
 
 
 </script>
@@ -33,6 +19,7 @@ const tabs = [{
 <template>
 
     <header>
+      
       <nav class="bg-white shadow-xl fixed w-full z-10">
         <div class="flex  justify-between items-center  px-3">
           <button>
@@ -40,6 +27,7 @@ const tabs = [{
             <img src="/logo.webp" class="mr-3 h-24" alt="Help Oot Logo" />
            </NuxtLink>
           </button>
+          
           
    
                               
@@ -55,7 +43,8 @@ const tabs = [{
         
            <div class="hidden justify-between  h-full md:flex  px-10">
             <ul class="flex flex-row space-x-8">
-    <li v-for="tab in tabs" :key="tab.title">
+    <li v-for="tab in data.links" :key="tab.title">
+      {{ console.log(tab) }}
       <NuxtLink :to="tab.link">
         <button
           :class="{
@@ -64,7 +53,7 @@ const tabs = [{
           }"
           class="md:text-sm rounded hover:bg-gray-100"
         >
-          {{ tab.title }}
+          {{ tab.label }}
         </button>
       </NuxtLink>
     </li>
@@ -73,14 +62,14 @@ const tabs = [{
         </div>
 
       
-        <div v-for="tab in tabs" class = "md:hidden flex flex-col"  v-show="drawerOpen">
+        <div v-for="tab in data.links" class = "md:hidden flex flex-col"  v-show="drawerOpen">
          
         <NuxtLink  :to="tab.link">
                 <button class="h-full w-full py-4 text-black rounded hover:bg-gray-100"  :class="{
             'text-gray-500': $route?.path !== tab.link, // Change to your deselected color
             'text-black': $route?.path === tab.link // Change to your selected color
           }">
-                  {{ tab.title }}
+                  {{ tab.lae }}
                 </button>
               </NuxtLink>
             </div>

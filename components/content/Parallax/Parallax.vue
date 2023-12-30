@@ -1,27 +1,17 @@
 <script setup lang="ts">
 import {defineProps} from 'vue';
 
-const { image, bgLight, colour } = defineProps({
+const { image,  colour } = defineProps({
   image: {
     type: String,
-    default: '',
+    required: true,
   },
   colour: {
     type: String,
+    required: true,
   
   },
-  bgLight:{
-    type: Boolean,
-    default: false,
-  },
-  bgDark:{
-    type: Boolean,
-    default:false,
-  }
 });
-
-console.log("hello", image)
-console.log("hello", colour)
 
 </script>
 
@@ -33,7 +23,7 @@ console.log("hello", colour)
       <div class="absolute inset-0 opacity-40" :style="{backgroundColor: colour}"></div>
     </div>
     <div class=" shadow-xl relative flex items-center justify-center h-full">
-        <slot></slot>
+        <Hero heading="test" summary="ttt" />
     </div>
     
   </div>
