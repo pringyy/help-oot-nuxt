@@ -22,7 +22,7 @@ const { image, colour, heading, summary } = defineProps({
     },
 
 });
-
+console.log("test")
 </script>
 <template>
     <Parallax :image="image" :colour="colour">

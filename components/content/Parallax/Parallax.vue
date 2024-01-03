@@ -8,7 +8,7 @@ const { image,  colour } = defineProps({
   },
   colour: {
     type: String,
-    required: true,
+
   
   },
 });
@@ -23,7 +23,7 @@ const { image,  colour } = defineProps({
       <div class="absolute inset-0 opacity-40" :style="{backgroundColor: colour}"></div>
     </div>
     <div class=" shadow-xl relative flex items-center justify-center h-full">
-        <Hero heading="test" summary="ttt" />
+        <slot></slot>
     </div>
     
   </div>

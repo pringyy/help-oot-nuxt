@@ -29,10 +29,11 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        label: "Pages",
+        label: "📄 Pages",
         name: "page",
-        path: "content/",
+        path: "content/pages",
         format: "mdx",
+       
         fields: [
           {
             type: "string",
@@ -46,9 +47,10 @@ export default defineConfig({
             label: "Content",
             name: "Content",
             isBody: true,
+            list: true,
             templates: [
               {
-                name: "Parallax",
+                name: "Parallaxhero",
                 label: "Parallax Hero",
                 
                 fields: [
@@ -81,145 +83,123 @@ export default defineConfig({
                   },
                 ],
               },
-            ]
-          },
-        ],
-        },
-         
-              
-      //         {
-      //           name: "Contact",
-      //           label: "Contact",
-      //           fields: [
-      //             {
-      //               name: "Contact",
-      //               label: "Contact",
-      //               type: "reference",
-      //               collections: ["contact"],
-      //             },
-      //           ],
-      //         },
-      //         {
-      //           name: "Parallax",
-      //           label: "Parallax",
-      //           fields: [
-      //             {
-      //               name: "image",
-      //               label: "Image",
-      //               type: "image",
-      //             },
-      //             {
-      //               type: "string",
-      //               label: "Background Color",
-      //               name: "colour",
-      //               ui: {
-      //                 component: "color",
-      //                 colorFormat: "rgb",
-      //               },
-      //             },
-      //             {
-      //               type: "rich-text",
-      //               label: "Content",
-      //               name: "children",
-      //               isBody: true,
-      //               templates: [
-      //                 {
-      //                   name: "Hero",
-      //                   label: "Hero",
-      //                   fields: [
-      //                     {
-      //                       name: "heading",
-      //                       label: "heading",
-      //                       type: "string",
-      //                     },
-      //                     {
-      //                       name: "summary",
-      //                       label: "summary",
-      //                       type: "string",
-      //                       ui: {
-      //                         component: "textarea",
-      //                       },
-      //                     },
-      //                     {
-      //                       type: "rich-text",
-      //                       label: "Content",
-      //                       name: "children",
-      //                       isBody: true,
-      //                       templates: [
-      //                         {
-      //                           name: "Buttongroup",
-      //                           label: "Button Group",
-      //                           fields: [
-      //                             {
-      //                               type: "rich-text",
-      //                               label: "Content",
-      //                               name: "children",
-      //                               isBody: true,
-      //                               templates: [
-      //                                 {
-      //                                   name: "Buttonprimary",
-      //                                   label: "Button",
-      //                                   fields: [
-      //                                     {
-      //                                       name: "label",
-      //                                       label: "Button Text",
-      //                                       type: "string",
-      //                                     },
-      //                                   ],
-      //                                 },
-      //                               ],
-      //                             },
-      //                           ],
-      //                         },
-      //                       ],
-      //                     },
-      //                   ],
-      //                 },
-      //               ],
-      //             },
-      //           ],
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
-
-      {
-        label: "Contact",
-        name: "Contact",
-        path: "content/contact",
-        format: "mdx",
-        fields: [
-          {
-            type: "string",
-            label: "Title",
-            name: "title",
-            required: true,
-            isTitle: true,
-          },
-
-          {
-            type: "rich-text",
-            label: "Content",
-            name: "Content",
-            isBody: true,
-            templates: [
               {
-                name: "Contact",
-                label: "Contact",
+                name: "Reviews",
+                label: "Reviews",
+                fields: [
+                  {
+                    name: "heading",
+                    label: "heading",
+                    type: "string",
+                    description: "Please enter the heading you want to display above the reviews",
+                  },
+                ],
+              },
+              {
+                name: "Partners",
+                label: "Partners",
+                
                 fields: [
                   {
                     name: "heading",
                     label: "heading",
                     type: "string",
                   },
+                
+                ]
+              },
+              {
+                name: "Content",
+                label: "Content",
+                
+                fields: [
                   {
-                    name: "summary",
-                    label: "summary",
+                    name: "heading",
+                    label: "heading",
                     type: "string",
                   },
-                ],
+                
+                ]
               },
+              
+            ]
+          },
+        ],
+        },
+         
+              
+      
+      {
+        label: "📚 Reviews",
+        name: "reviews",
+        path: "content/reviews",
+        format: "md",
+        fields: [
+          {
+            type: "string",
+            label: "Name",
+            description: "Please enter the name of the client who has given the review",
+            name: "name",
+            required: true,
+            isTitle: true,
+          },
+          {
+          type: "rich-text",
+          name: "review",
+          label: "Review",
+          description: "Please enter the review here",
+          required: true,
+          ui: {
+            component: "textarea",
+          }
+          
+    
+        },
+
+
+
+        ]
+      },
+
+      {
+        name: "nav",
+        label: "🧭 Navigation",
+        path: "content/nav",
+        format: "md",
+       
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          global: true,
+        },
+        fields: [
+          {
+            name: "image",
+            label: "Header Image",
+            description: "This is the image that will be displayed in the header.",
+            type: "image",
+            
+          },
+          { type: "reference", collections: ["page"], name: "headerLink", label: "Header Link", 
+          description: "This is the link that the Header Image will navigate to."
+        },
+          {
+            name: "links",
+            label: "Navigaton Links",
+            description: "These are the links that will be displayed in the navigation bar.",
+            type: "object",
+            list: true,
+            ui: {
+              itemProps: (item) => {
+                return { label: item.label }
+              },
+            },
+            fields: [
+              { type: "string", name: "label", label: "Label" },
+              { type: "reference", collections: ["page"], name: "link", label: "Link" },    
+            
             ],
           },
         ],
