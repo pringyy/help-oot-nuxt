@@ -1,6 +1,6 @@
 ---
 image: /logo.webp
-headerLink: content/_index.md
+headerLink: content/index.md
 links:
   - label: What We Do
     link: content/pages/what-we-do/index.md
