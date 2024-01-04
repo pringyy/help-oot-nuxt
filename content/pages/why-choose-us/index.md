@@ -2,7 +2,7 @@
 title: Why Choose Us
 Content:
   - heading: Why Choose Us
-    summary: qwdwqdqwdqw
+    summary: This is why you should let me help
     image: /hands.webp
     colour: 'rgb(255, 255, 255)'
     _template: ParallaxHero
