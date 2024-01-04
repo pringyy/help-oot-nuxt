@@ -14,7 +14,7 @@ const { heading } = defineProps({
 <template>
 
    <ContentQuery path="/reviews" v-slot="{ data }">
-      <div id="contact" class="flex flex-col lg:flex-row items-center justify-center min-h-screen">
+      <div id="reviews" class="flex flex-col lg:flex-row items-center justify-center min-h-screen py-[15vh]">
         <div id="reviews" class="flex items-center justify-center h-max">
       <div class="w-full md:w-9/12 p-8 text-center">
         <p class="flex items-center justify-center text-4xl">{{ heading }}</p>

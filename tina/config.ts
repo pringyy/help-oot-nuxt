@@ -29,11 +29,97 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        label: "🏠 Home Page",
+        name: "home",
+        path: "content",
+        match: {
+          include: "index",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        format: "md",
+        fields: [
+          {
+            type: "string",
+            label: "Title",
+            description: "Please enter the name of the client who has given the review",
+            name: "title",
+            required: true,
+            isTitle: true,
+          },
+          {
+            type: "object",
+            label: "Content",
+            name: "Content",
+            isBody: true,
+            list: true,
+            templates: [
+              {
+                name: "ParallaxHero",
+                label: "Parallax Hero",
+                
+                fields: [
+                  {
+                    name: "heading",
+                    label: "heading",
+                    type: "string",
+                  },
+                  {
+                    name: "summary",
+                    label: "summary",
+                    type: "string",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    name: "image",
+                    label: "Image",
+                    type: "image",
+                  },
+                  {
+                    type: "string",
+                    label: "Background Color",
+                    name: "colour",
+                    ui: {
+                      component: "color",
+                      colorFormat: "rgb",
+                    },
+                  },
+                ],
+              },
+            ]
+          },
+        ]
+      },
+
+      {
         label: "📄 Pages",
         name: "page",
         path: "content/pages",
-        format: "mdx",
+        format: "md",
+        ui: {
+      filename: {
+        // if disabled, the editor can not edit the filename
+        readonly: true,
+        // Example of using a custom slugify function
+        slugify: (values) => {
+          // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+          if (!values?.title) return "";
+            return `${values?.title.toLowerCase().replace(/ /g, '-')}/index`
+        }
+
+        },
+        allowedActions: {
+          create: false,
+          delete: false,
+        },
        
+      },
         fields: [
           {
             type: "string",
@@ -43,14 +129,27 @@ export default defineConfig({
             isTitle: true,
           },
           {
-            type: "rich-text",
+            type: "object",
             label: "Content",
             name: "Content",
             isBody: true,
             list: true,
             templates: [
               {
-                name: "Parallaxhero",
+                name: "ContactForm",
+                label: "Contact Form",
+      
+                fields: [
+                  {
+                    name: "reference",
+                    label: "Contact",
+                    type: "reference",
+                    collections: ["ContactForm"],
+                  },
+                ],
+              },
+              {
+                name: "ParallaxHero",
                 label: "Parallax Hero",
                 
                 fields: [
@@ -121,11 +220,14 @@ export default defineConfig({
                 
                 ]
               },
+             
               
             ]
           },
         ],
         },
+
+        
          
               
       
@@ -160,6 +262,35 @@ export default defineConfig({
 
         ]
       },
+      {
+        label: "📞 Contact Form",
+        name: "ContactForm",
+        path: "content/contactForm",
+        format: "md",
+        ui: {
+            allowedActions: {
+              create: false,
+              delete: false,
+            },
+
+          },
+        
+        fields: [
+          {
+            type: "string",
+            label: "Heading",
+            name: "heading",
+            required: true,
+          },
+
+          {
+            type: "string",
+            label: "Subheading",
+            name: "subheading",
+            required: true,
+          },
+        ],
+      },
 
       {
         name: "nav",
@@ -182,7 +313,7 @@ export default defineConfig({
             type: "image",
             
           },
-          { type: "reference", collections: ["page"], name: "headerLink", label: "Header Link", 
+          { type: "reference", collections: ["home"], name: "headerLink", label: "Header Link", 
           description: "This is the link that the Header Image will navigate to."
         },
           {
@@ -204,6 +335,7 @@ export default defineConfig({
           },
         ],
       },
+     
     ],
   },
 });

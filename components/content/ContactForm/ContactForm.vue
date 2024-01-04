@@ -2,7 +2,7 @@
 <script setup lang="ts">
 const {heading, summary} = defineProps({
   heading: String,
-  summary: String,
+  subheading: String,
 });
 
 
@@ -28,18 +28,24 @@ const submitForm = () => {
     console.log('Form submitted:', formData.value);
   }
 };
+
 </script>
 
 
 
 <template>
- <div id="contact" class="flex flex-col lg:flex-row items-center justify-center lg:h-screen h-max">
+
+ <div id="contact" class="flex flex-col lg:flex-row items-center justify-center lg:h-screen min-h-screen">
     <!-- "Let's Chat" and Phone Number -->
-    <div class="lg:w-6/12 p-6 text-center lg:text-left">
-      <h2 class="text-4xl md:text-6xl lg:text-6xl font-semibold mb-4">{{ heading }}</h2>
+
+    <ContentQuery path="/contactform" find="one" v-slot="{ data }">
+      <div class="lg:w-6/12 p-6 text-center lg:text-left">
+      <h2 class="text-4xl md:text-6xl lg:text-6xl font-semibold mb-4">{{ data.heading }}</h2>
       <p class="text-lg mb-2 text-bold">Call Brian on +44 7557 336834</p>
-      <p> {{ summary }}</p>
+      <p> {{ data.subheading }}</p>
     </div>
+
+  </ContentQuery>
 
 
     <form @submit.prevent="submitForm" class="lg:w-1/2 w-full max-w-md lg:ml-8 mt-8 lg:mt-0 p-6 bg-white border-gray-300 border shadow-2xl rounded-xl">

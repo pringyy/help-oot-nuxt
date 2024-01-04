@@ -19,6 +19,7 @@
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/mdx": "^3.0.0",
     "fs": "^0.0.1-security",
+    "nuxt-delay-hydration": "^1.3.3",
     "path": "^0.12.7",
     "tinacms": "^1.5.28",
     "vue-mdx": "^0.0.3"

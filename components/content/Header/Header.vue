@@ -11,8 +11,9 @@ const toggleDrawer = () => {
 };
 
 function formatPath(path: string) {
+
   let newPath = path.replace(/.*\/pages\//, ''); // Remove everything before and including /pages/
-  newPath = newPath.replace(/\/index.mdx$/, ''); // Remove /index.mdx at the end
+  newPath = newPath.replace(/\/index.md$/, ''); // Remove /index.mdx at the end
   return newPath;
 }
 </script>

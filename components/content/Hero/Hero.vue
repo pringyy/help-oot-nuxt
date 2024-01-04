@@ -27,10 +27,10 @@ export default {
         <p class="mb-11 text-lg font-medium md:max-w-md">
           {{ summary }}
         </p>
-        <!-- <div class="flex flex-wrap -m-2.5 mb-20">
+        <div class="flex flex-wrap -m-2.5 mb-20">
           <div class="w-full md:w-auto p-2.5">
             <div class="block">
-              <a href="#about">
+              <a href="#reviews">
               <button
                 class="py-4 px-6 w-full shadow-xl text-white  border border-indigo-700 rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
                 type="button"
@@ -42,7 +42,7 @@ export default {
           </div>
           <div class="w-full md:w-auto p-2.5">
             <div class="block">
-              <a href="#contact">
+              <a href="#partners">
               <button
                 class="py-4 px-9 w-full shadow-xl border bg-white border-gray-300 rounded-xl focus:ring   hover:bg-gray-100 transition ease-in-out duration-200"
                 type="button"
@@ -56,7 +56,7 @@ export default {
             </a>
             </div>
           </div>
-        </div> -->
+        </div>
         <slot/>
       </div>
     <a href="#about" class="absolute bottom-0 mb-12">
