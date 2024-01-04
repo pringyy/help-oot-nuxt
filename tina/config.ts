@@ -246,7 +246,7 @@ export default defineConfig({
             isTitle: true,
           },
           {
-          type: "rich-text",
+          type: "string",
           name: "review",
           label: "Review",
           description: "Please enter the review here",
